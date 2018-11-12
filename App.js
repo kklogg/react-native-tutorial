@@ -26,6 +26,7 @@ export default class Bananas extends Component {
 }
 */
 
+/*
 class Greeting extends Component {
   render() {
     return (
@@ -35,7 +36,9 @@ class Greeting extends Component {
     );
   }
 }
+*/
 
+/*
 export default class LotsOfGreetings extends Component {
   render() {
     return (
@@ -47,5 +50,42 @@ export default class LotsOfGreetings extends Component {
     );
   }
 }
+*/
 
-AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isShowingText: true };
+
+    setInterval(() => (
+      this.setState(previousState => (
+        { isShowingText: !previousState.isShowingText }
+      ))
+    ), 1000);
+  }
+
+  render() {
+    if (!this.state.isShowingText) {
+      return null;
+    }
+
+    return (
+      <Text>{this.props.text}</Text>
+    );
+  }
+}
+
+export default class BlinkApp extends Component {
+  render() {
+    return (
+      <View>
+        <Blink text='I love to blink'/>
+        <Blink text='Yes blinking is so great'/>
+        <Blink text='Why did they ever take this out of HTML'/>
+        <Blink text='Look at me look at me look at me'/>
+      </View>
+    );
+  }
+}
+
+AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
