@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { AppRegistry, Image, Text, View } from 'react-native';
 
+/*
 export default class HelloWorldApp extends Component {
   render() {
     return (
@@ -10,3 +11,17 @@ export default class HelloWorldApp extends Component {
     );
   }
 }
+*/
+
+export default class Bananas extends Component {
+  render() {
+    let pic = {
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
+    return (
+      <Image source={pic} style={{width: 193, height: 110}}/>
+    );
+  }
+}
+
+AppRegistry.registerComponent('AwesomeProject', () => Bananas);
